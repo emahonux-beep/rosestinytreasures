@@ -486,6 +486,10 @@ input:focus-visible {
 }
 @media (min-width: 700px) {
   .card-grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .card-grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .card-grid--4 { grid-template-columns: repeat(4, 1fr); }
 }
 
 .card {
