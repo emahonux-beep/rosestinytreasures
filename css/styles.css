@@ -12,10 +12,6 @@
   --brand-blush: #EAD7D7;
   --brand-jet: #19323C;
   --brand-white: #FFFFFF;
-  /* Sage accent: used site-wide (announcement bar, CTA bands) alongside
-     the Design System Foundation palette. */
-  --brand-sage: #9DAF97;
-  --color-on-sage: var(--brand-jet);
 
   /* Semantic */
   --color-primary: var(--brand-deep-space);
@@ -156,6 +152,21 @@ input:focus-visible {
   outline-offset: 2px;
 }
 
+/* Skip link: hidden off-screen until keyboard-focused */
+.visually-hidden-focusable {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+}
+.visually-hidden-focusable:focus {
+  left: var(--space-4);
+}
+
 /* ---------- 3. Layout helpers ---------- */
 .container {
   width: 100%;
@@ -240,19 +251,22 @@ input:focus-visible {
   color: var(--color-on-secondary);
   background: var(--color-secondary);
 }
-.button--filled:hover { background: #532940; }
-
 .button--primary {
   color: var(--color-on-primary);
   background: var(--color-primary);
 }
-.button--primary:hover { background: #0e2530; }
-
 .button--tonal {
   color: var(--color-secondary);
   background: var(--color-surface-brand);
 }
-.button--tonal:hover { background: #e2c3c3; }
+
+/* Material-style state overlay (doc section 4) instead of hand-picked
+   hover colors: a Jet Black-tinted layer at --state-hover opacity. */
+.button--filled:hover,
+.button--primary:hover,
+.button--tonal:hover {
+  box-shadow: inset 0 0 0 999px rgba(25, 50, 60, var(--state-hover));
+}
 
 .button--outlined {
   color: var(--color-secondary);
@@ -270,8 +284,8 @@ input:focus-visible {
 
 /* ---------- 5. Announcement bar ---------- */
 .announcement {
-  background: var(--brand-sage);
-  color: var(--color-on-sage);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
 }
 .announcement__inner {
   padding-block: var(--space-2);
@@ -396,7 +410,7 @@ input:focus-visible {
 /* ---------- 7. Hero ---------- */
 .hero {
   padding-block: var(--space-20) var(--space-16);
-  background: linear-gradient(180deg, #FFFFFF 0%, var(--color-surface-alt) 100%);
+  background: linear-gradient(180deg, var(--brand-white) 0%, var(--color-surface-alt) 100%);
 }
 .hero__inner {
   display: grid;
@@ -536,6 +550,9 @@ input:focus-visible {
 
 /* Simple centered cards used for marketplace + testimonials */
 .card--center { text-align: center; padding: var(--space-8) var(--space-6); }
+.card--center .card__title { color: var(--color-secondary); }
+.card--center .card__eyebrow { justify-content: center; }
+.card--center .button { margin-top: var(--space-5); }
 .card__icon {
   width: 56px;
   height: 56px;
@@ -603,6 +620,7 @@ input:focus-visible {
 }
 .site-footer .logo__name { color: var(--brand-white); }
 .site-footer .logo__tagline { color: var(--brand-blush); opacity: 0.8; }
+.site-footer .logo__icon img { filter: brightness(0) invert(1); }
 
 .footer__grid {
   display: grid;
@@ -789,13 +807,13 @@ input:focus-visible {
 
 /* ---------- 19. CTA band ---------- */
 .cta-band {
-  background: var(--brand-sage);
-  color: var(--color-on-sage);
+  background: var(--color-surface-brand);
+  color: var(--color-on-accent);
   text-align: center;
 }
 .cta-band .eyebrow { color: var(--color-secondary); justify-content: center; }
 .cta-band .section-title { color: var(--color-secondary); }
-.cta-band .section-subtitle { color: var(--color-on-sage); opacity: 0.85; max-width: var(--container-sm); margin-inline: auto; }
+.cta-band .section-subtitle { color: var(--color-text-secondary); max-width: var(--container-sm); margin-inline: auto; }
 .cta-band__actions {
   display: flex;
   flex-wrap: wrap;
