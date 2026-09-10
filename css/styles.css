@@ -308,22 +308,10 @@ input:focus-visible {
 }
 .logo__icon { width: 44px; height: 44px; flex-shrink: 0; }
 .logo__icon svg { width: 100%; height: 100%; }
-.logo__wordmark {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
 .logo__name-mark {
   height: 34px;
   width: auto;
   display: block;
-}
-.logo__tagline {
-  font-family: var(--font-meta);
-  font-size: 0.6rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
 }
 
 .nav {
@@ -565,7 +553,6 @@ input:focus-visible {
   background: var(--color-secondary);
   color: var(--brand-blush);
 }
-.site-footer .logo__tagline { color: var(--brand-blush); opacity: 0.8; }
 .site-footer .logo__icon img,
 .site-footer .logo__name-mark { filter: brightness(0) invert(1); }
 
