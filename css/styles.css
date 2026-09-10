@@ -12,6 +12,10 @@
   --brand-blush: #EAD7D7;
   --brand-jet: #19323C;
   --brand-white: #FFFFFF;
+  /* Sage accent: used site-wide (announcement bar, CTA bands) alongside
+     the Design System Foundation palette. */
+  --brand-sage: #9DAF97;
+  --color-on-sage: var(--brand-jet);
 
   /* Semantic */
   --color-primary: var(--brand-deep-space);
@@ -266,8 +270,8 @@ input:focus-visible {
 
 /* ---------- 5. Announcement bar ---------- */
 .announcement {
-  background: var(--color-primary);
-  color: var(--color-on-primary);
+  background: var(--brand-sage);
+  color: var(--color-on-sage);
 }
 .announcement__inner {
   padding-block: var(--space-2);
@@ -482,6 +486,10 @@ input:focus-visible {
 }
 @media (min-width: 700px) {
   .card-grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .card-grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .card-grid--4 { grid-template-columns: repeat(4, 1fr); }
 }
 
 .card {
@@ -542,6 +550,14 @@ input:focus-visible {
 .card__icon svg { width: 26px; height: 26px; }
 
 /* ---------- 10. Testimonials ---------- */
+.testimonial__stars {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-1);
+  color: var(--color-warning);
+  margin-bottom: var(--space-4);
+}
+.testimonial__stars svg { width: 16px; height: 16px; }
 .testimonial__quote {
   font-style: italic;
   color: var(--color-text-secondary);
@@ -648,3 +664,143 @@ input:focus-visible {
   text-align: center;
 }
 .contact-strip a.button { margin-top: var(--space-6); }
+
+/* ---------- 15. Page hero (interior pages) ---------- */
+.page-hero {
+  padding-block: var(--space-16);
+  background: var(--color-surface-alt);
+  text-align: center;
+}
+.page-hero .section-title { font-size: var(--display-md); }
+.page-hero .section-subtitle { max-width: var(--container-sm); margin-inline: auto; }
+
+/* ---------- 16. Story (About: portrait + bio) ---------- */
+.story__inner {
+  display: grid;
+  gap: var(--space-10);
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .story__inner { grid-template-columns: 0.85fr 1.15fr; }
+}
+.story__portrait {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-secondary);
+  overflow: hidden;
+}
+.story__portrait img { width: 100%; height: 100%; object-fit: cover; }
+.story__portrait svg { width: 30%; height: 30%; }
+.story p + p { margin-top: var(--space-4); }
+.story__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+/* ---------- 17. Origin story (image + quote) ---------- */
+.origin__inner {
+  display: grid;
+  gap: var(--space-10);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .origin__inner { grid-template-columns: 1fr 1fr; }
+}
+.origin__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+}
+.origin__image img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+.origin__icon {
+  width: 40px;
+  height: 40px;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-3);
+}
+.origin blockquote {
+  margin: var(--space-6) 0 0;
+  padding-left: var(--space-4);
+  border-left: 3px solid var(--color-secondary);
+  font-style: italic;
+  color: var(--color-text-secondary);
+}
+.origin cite {
+  display: block;
+  margin-top: var(--space-3);
+  font-family: var(--font-script);
+  font-style: normal;
+  font-size: var(--text-lg);
+  color: var(--color-secondary);
+}
+
+/* ---------- 18. FAQ accordion ---------- */
+.faq { max-width: var(--container-md); margin-inline: auto; display: flex; flex-direction: column; gap: var(--space-3); }
+.faq__item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.faq__item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  list-style: none;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__toggle {
+  position: relative;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--color-secondary);
+}
+.faq__toggle::before,
+.faq__toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+.faq__toggle::before { width: 14px; height: 2px; }
+.faq__toggle::after { width: 2px; height: 14px; transition: transform 150ms ease; }
+.faq__item[open] .faq__toggle::after { transform: translate(-50%, -50%) scaleY(0); }
+.faq__item p {
+  padding: 0 var(--space-6) var(--space-5);
+  color: var(--color-text-secondary);
+}
+
+/* ---------- 19. CTA band ---------- */
+.cta-band {
+  background: var(--brand-sage);
+  color: var(--color-on-sage);
+  text-align: center;
+}
+.cta-band .eyebrow { color: var(--color-secondary); justify-content: center; }
+.cta-band .section-title { color: var(--color-secondary); }
+.cta-band .section-subtitle { color: var(--color-on-sage); opacity: 0.85; max-width: var(--container-sm); margin-inline: auto; }
+.cta-band__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+.cta-band .button--outlined { border-color: var(--color-secondary); color: var(--color-secondary); }
