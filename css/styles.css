@@ -451,8 +451,8 @@ input:focus-visible {
   .stats__grid { grid-template-columns: repeat(4, 1fr); }
 }
 .stat__value {
-  font-family: var(--font-body);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 400;
   font-size: var(--heading-lg);
   line-height: 1;
   margin-bottom: var(--space-2);
