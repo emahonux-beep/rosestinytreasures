@@ -1,0 +1,29 @@
+/* Custom brand fonts (Supa Mega Fantastic Duo).
+   Two files each (woff2 + woff) so older browsers still work. */
+
+@font-face {
+  font-family: "Supa Mega Fantastic Caps";
+  src: url("../assets/fonts/supamegafantasticcaps-webfont.woff2") format("woff2"),
+       url("../assets/fonts/supamegafantasticcaps-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Supa Mega Fantastic Script";
+  src: url("../assets/fonts/supamegafantasticscript-webfont.woff2") format("woff2"),
+       url("../assets/fonts/supamegafantasticscript-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Supa Mega Fantastic Script Thinner";
+  src: url("../assets/fonts/supamegafantasticscriptthinner-webfont.woff2") format("woff2"),
+       url("../assets/fonts/supamegafantasticscriptthinner-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
