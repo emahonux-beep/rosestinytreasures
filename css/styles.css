@@ -307,7 +307,8 @@ input:focus-visible {
   gap: var(--space-3);
 }
 .logo__mark {
-  height: 44px;
+  height: 40px;
+  max-height: 40px;
   width: auto;
   display: block;
 }
