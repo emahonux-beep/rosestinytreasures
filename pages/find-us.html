@@ -40,8 +40,19 @@
       </ul>
       <a href="contact.html" class="button button--filled">Contact</a>
     </nav>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
 
   </div>
+
+  <nav id="mobile-menu" class="mobile-nav" aria-label="Mobile">
+    <a href="../index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="shop.html">Shop</a>
+    <a href="find-us.html">Find Us</a>
+    <a href="contact.html" class="button button--filled">Contact</a>
+  </nav>
 
 </header>
 
@@ -51,7 +62,6 @@
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
         Find Us Online
       </p>
       <h1 class="section-title">Find My Shop On</h1>
@@ -153,10 +163,7 @@
   <div class="container footer__grid">
     <div>
       <a href="../index.html" class="logo">
-        <span class="logo__icon">
-          <img src="../assets/images/logo.svg" alt="" width="44" height="44" />
-        </span>
-        <img class="logo__name-mark" src="../assets/images/wordmark.svg" alt="Rose's Tiny Treasures" />
+        <img class="logo__mark" src="../assets/images/logo-horizontal.svg" alt="Rose's Tiny Treasures" />
       </a>
       <p class="footer__desc">Handcrafted, 3D printed, and hand-painted miniatures from a Connecticut workshop. Every tiny world is one-of-a-kind.</p>
       <div class="footer__social">
@@ -202,5 +209,6 @@
   </div>
 </footer>
 
+<script src="../js/main.js"></script>
 </body>
 </html>

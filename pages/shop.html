@@ -40,8 +40,19 @@
       </ul>
       <a href="contact.html" class="button button--filled">Contact</a>
     </nav>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
 
   </div>
+
+  <nav id="mobile-menu" class="mobile-nav" aria-label="Mobile">
+    <a href="../index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="shop.html">Shop</a>
+    <a href="find-us.html">Find Us</a>
+    <a href="contact.html" class="button button--filled">Contact</a>
+  </nav>
 
 </header>
 
@@ -51,7 +62,6 @@
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/></svg>
         Shop Miniatures
       </p>
       <h1 class="section-title">Shop My Miniatures</h1>
@@ -117,6 +127,51 @@
     </div>
   </section>
 
+  <!-- ============ eBay Store showcase ============ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow">Primary Storefront</p>
+        <h2 class="section-title">Shop the Full eBay Store</h2>
+        <p class="section-subtitle">Rose's eBay store carries her complete catalog — the fastest way to see everything currently for sale.</p>
+      </div>
+
+      <div class="shop-showcase">
+        <div class="shop-showcase__body">
+          <div class="shop-showcase__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 4.6A1 1 0 0 0 5.6 19H17M17 19a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM9 19a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
+          </div>
+          <p class="shop-showcase__handle">rose11597 on eBay</p>
+          <p class="section-subtitle">New listings added weekly — dollhouses, furniture, and accessories, all handcrafted and one-of-a-kind.</p>
+
+          <div class="shop-showcase__stats">
+            <div>
+              <div class="shop-showcase__stat-value">99.5%</div>
+              <div class="shop-showcase__stat-label">Positive Feedback</div>
+            </div>
+            <div>
+              <div class="shop-showcase__stat-value">4.4K+</div>
+              <div class="shop-showcase__stat-label">Items Sold</div>
+            </div>
+            <div>
+              <div class="shop-showcase__stat-value">5.0 ★</div>
+              <div class="shop-showcase__stat-label">Seller Rating</div>
+            </div>
+            <div>
+              <div class="shop-showcase__stat-value">Weekly</div>
+              <div class="shop-showcase__stat-label">New Listings</div>
+            </div>
+          </div>
+
+          <a href="https://www.ebay.com/usr/rose11597" target="_blank" rel="noopener" class="button button--filled">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 4.6A1 1 0 0 0 5.6 19H17M17 19a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM9 19a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
+            Browse Full Inventory on eBay
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ Marketplaces ============ -->
   <section class="section section--alt">
     <div class="container">
@@ -159,12 +214,12 @@
   <section class="section cta-band">
     <div class="container">
       <p class="eyebrow">Custom Orders</p>
-      <h2 class="section-title">Have Something Specific in Mind?</h2>
-      <p class="section-subtitle">Rose takes custom orders for room boxes, furniture, and full dollhouse restorations.</p>
+      <h2 class="section-title">Don't See What You're Looking For?</h2>
+      <p class="section-subtitle">Rose takes custom orders for room boxes, furniture, and full dollhouse restorations — reach out and tell her what you have in mind.</p>
       <div class="cta-band__actions">
         <a href="contact.html" class="button button--filled">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-          Request a Custom Piece
+          Contact Me
         </a>
         <a href="about.html#faq" class="button button--outlined">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2 2-2.5 3.5"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
@@ -181,10 +236,7 @@
   <div class="container footer__grid">
     <div>
       <a href="../index.html" class="logo">
-        <span class="logo__icon">
-          <img src="../assets/images/logo.svg" alt="" width="44" height="44" />
-        </span>
-        <img class="logo__name-mark" src="../assets/images/wordmark.svg" alt="Rose's Tiny Treasures" />
+        <img class="logo__mark" src="../assets/images/logo-horizontal.svg" alt="Rose's Tiny Treasures" />
       </a>
       <p class="footer__desc">Handcrafted, 3D printed, and hand-painted miniatures from a Connecticut workshop. Every tiny world is one-of-a-kind.</p>
       <div class="footer__social">
@@ -230,5 +282,6 @@
   </div>
 </footer>
 
+<script src="../js/main.js"></script>
 </body>
 </html>
