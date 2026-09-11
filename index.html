@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500;600&amp;display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="css/fonts.css" />
-<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/styles.css?v=2" />
 </head>
 <body>
 
@@ -264,29 +264,37 @@
         <p class="section-subtitle">Browse Rose's miniatures on your favorite marketplace — all regularly updated with new pieces.</p>
       </div>
 
-      <div class="card-grid card-grid--3">
-        <a class="card card--center" href="https://www.ebay.com/usr/rose11597" target="_blank" rel="noopener">
-          <div class="card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 4.6A1 1 0 0 0 5.6 19H17M17 19a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM9 19a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
-          </div>
-          <p class="card__eyebrow">eBay</p>
-          <p class="card__text">Browse listings and auctions</p>
-        </a>
-        <a class="card card--center" href="https://www.facebook.com/marketplace/profile/100093416240074/" target="_blank" rel="noopener">
-          <div class="card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/></svg>
-          </div>
-          <p class="card__eyebrow">Facebook Marketplace</p>
-          <p class="card__text">Local pickup &amp; shipped items</p>
-        </a>
-        <a class="card card--center" href="https://www.whatnot.com/s/6jd6Psl3" target="_blank" rel="noopener">
-          <div class="card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M10 9.5v5l4-2.5z"/></svg>
-          </div>
-          <p class="card__eyebrow">Whatnot</p>
-          <p class="card__text">Live selling events &amp; buy-it-now</p>
-        </a>
-      </div>
+      <aside class="shop-sidebar shop-sidebar--standalone">
+        <div class="shop-sidebar__list">
+          <a class="shop-sidebar__item" href="https://www.ebay.com/usr/rose11597" target="_blank" rel="noopener">
+            <div class="shop-sidebar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 4.6A1 1 0 0 0 5.6 19H17M17 19a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM9 19a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
+            </div>
+            <div>
+              <p class="shop-sidebar__label">eBay</p>
+              <p class="shop-sidebar__text">Browse listings and auctions</p>
+            </div>
+          </a>
+          <a class="shop-sidebar__item" href="https://www.facebook.com/marketplace/profile/100093416240074/" target="_blank" rel="noopener">
+            <div class="shop-sidebar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/></svg>
+            </div>
+            <div>
+              <p class="shop-sidebar__label">Facebook Marketplace</p>
+              <p class="shop-sidebar__text">Local pickup &amp; shipped items</p>
+            </div>
+          </a>
+          <a class="shop-sidebar__item" href="https://www.whatnot.com/s/6jd6Psl3" target="_blank" rel="noopener">
+            <div class="shop-sidebar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M10 9.5v5l4-2.5z"/></svg>
+            </div>
+            <div>
+              <p class="shop-sidebar__label">Whatnot</p>
+              <p class="shop-sidebar__text">Live selling events &amp; buy-it-now</p>
+            </div>
+          </a>
+        </div>
+      </aside>
 
       <div class="shop-cta">
         <a href="pages/shop.html" class="button button--outlined">
@@ -349,6 +357,6 @@
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/main.js?v=2"></script>
 </body>
 </html>
