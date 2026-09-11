@@ -595,6 +595,24 @@ input:focus-visible {
   margin-bottom: var(--space-2);
 }
 .card__text { color: var(--color-text-secondary); }
+
+.card--product {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.card--product .card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.card--product .card__title {
+  min-height: calc(var(--heading-sm) * var(--leading-heading) * 2);
+}
+.card--product .button {
+  margin-top: auto;
+}
+
 .card__price {
   font-family: var(--font-meta);
   font-size: var(--text-md);
@@ -608,6 +626,9 @@ input:focus-visible {
 .card--center .card__title { color: var(--color-secondary); }
 .card--center .card__eyebrow { justify-content: center; }
 .card--center .button { margin-top: var(--space-5); }
+.card--center .card__media {
+  margin: calc(var(--space-8) * -1) calc(var(--space-6) * -1) var(--space-6);
+}
 .card__icon {
   width: 56px;
   height: 56px;
@@ -1031,13 +1052,21 @@ textarea.field__input { min-height: 120px; resize: vertical; }
 
 /* ---------- 23. Work gallery ---------- */
 .gallery {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 24px, black calc(100% - 24px), transparent);
+  mask-image: linear-gradient(to right, transparent, black 24px, black calc(100% - 24px), transparent);
+}
+.gallery__track {
   display: flex;
   gap: var(--space-4);
-  overflow-x: auto;
-  scroll-snap-type: x proximity;
-  padding-bottom: var(--space-3);
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-border) transparent;
+  width: max-content;
+  animation: gallery-scroll 55s linear infinite;
+}
+.gallery:hover .gallery__track,
+.gallery.is-paused .gallery__track { animation-play-state: paused; }
+@keyframes gallery-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - var(--space-2))); }
 }
 .gallery__item {
   flex: 0 0 auto;
@@ -1048,7 +1077,6 @@ textarea.field__input { min-height: 120px; resize: vertical; }
   overflow: hidden;
   background: var(--color-surface-alt);
   box-shadow: var(--shadow-sm);
-  scroll-snap-align: start;
 }
 @media (min-width: 700px) {
   .gallery__item { max-width: 260px; }
