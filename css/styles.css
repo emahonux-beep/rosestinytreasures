@@ -562,6 +562,8 @@ input:focus-visible {
 
 .card__media {
   aspect-ratio: 4 / 3;
+  min-height: 0;
+  overflow: hidden;
   background: var(--color-surface-alt);
   display: flex;
   align-items: center;
@@ -600,6 +602,9 @@ input:focus-visible {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+.card--product[hidden] {
+  display: none;
 }
 .card--product .card__body {
   display: flex;
@@ -1093,3 +1098,145 @@ textarea.field__input { min-height: 120px; resize: vertical; }
 }
 .gallery__item:hover img { transform: scale(1.05); }
 .gallery__cta { text-align: center; margin-top: var(--space-10); }
+
+/* ---------- 24. Shop filters ---------- */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  margin-bottom: var(--space-8);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+.filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.filter-field__label {
+  font-family: var(--font-meta);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.filter-field__input {
+  min-height: 40px;
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+.filter-field__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(21, 50, 67, 0.14);
+}
+.filter-field__range {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-muted);
+}
+.filter-field__range .filter-field__input { width: 84px; }
+.filter-bar__all {
+  margin-left: auto;
+}
+.filter-bar__clear {
+  font-family: var(--font-meta);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-secondary);
+  text-decoration: underline;
+}
+@media (max-width: 699px) {
+  .filter-bar__all { margin-left: 0; }
+}
+
+.filter-empty {
+  grid-column: 1 / -1;
+  padding: var(--space-10) var(--space-6);
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.filter-modal {
+  width: min(480px, calc(100vw - var(--space-8)));
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+}
+.filter-modal::backdrop {
+  background: rgba(25, 50, 60, 0.5);
+}
+.filter-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-6);
+}
+.filter-modal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.filter-modal__title {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: var(--heading-sm);
+  color: var(--color-text-primary);
+}
+.filter-modal__close {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+}
+.filter-modal__close:hover { background: var(--color-surface-alt); }
+.filter-modal__close svg { width: 18px; height: 18px; }
+.filter-modal__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.filter-modal__field .filter-field__input { width: 100%; }
+.filter-modal__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.filter-chip {
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-family: var(--font-meta);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+}
+.filter-chip:hover { border-color: var(--color-border-strong); }
+.filter-chip.is-active {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-on-secondary);
+}
+.filter-modal__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}

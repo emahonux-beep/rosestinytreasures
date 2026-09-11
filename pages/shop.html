@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500;600&amp;display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="../css/fonts.css" />
-<link rel="stylesheet" href="../css/styles.css?v=3" />
+<link rel="stylesheet" href="../css/styles.css?v=4" />
 </head>
 <body>
 
@@ -67,6 +67,93 @@
         <p class="section-subtitle">A few of Rose's current pieces — view full details and buy directly on eBay.</p>
       </div>
 
+      <div class="filter-bar">
+        <div class="filter-field">
+          <label class="filter-field__label" for="filter-sort">Sort</label>
+          <select class="filter-field__input" id="filter-sort" data-filter="sort">
+            <option value="featured">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A to Z</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label class="filter-field__label" for="filter-category">Category</label>
+          <select class="filter-field__input" id="filter-category" data-filter="category">
+            <option value="">All Categories</option>
+            <option value="furniture">Furniture</option>
+            <option value="painting">Painting</option>
+            <option value="toy">Toy</option>
+            <option value="dessert">Dessert</option>
+            <option value="food">Food</option>
+            <option value="decor">Decor</option>
+            <option value="halloween">Halloween</option>
+          </select>
+        </div>
+        <div class="filter-field filter-field--range">
+          <span class="filter-field__label">Price Range</span>
+          <div class="filter-field__range">
+            <input class="filter-field__input" type="number" min="0" step="1" placeholder="Min" aria-label="Minimum price" id="filter-price-min" data-filter="price-min" />
+            <span aria-hidden="true">–</span>
+            <input class="filter-field__input" type="number" min="0" step="1" placeholder="Max" aria-label="Maximum price" id="filter-price-max" data-filter="price-max" />
+          </div>
+        </div>
+        <button type="button" class="filter-bar__all button button--outlined" data-open-filter-modal>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="9" cy="6" r="2" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="2" fill="currentColor" stroke="none"/><circle cx="9" cy="18" r="2" fill="currentColor" stroke="none"/></svg>
+          All Filters
+        </button>
+        <button type="button" class="filter-bar__clear" data-clear-filters hidden>Clear all</button>
+      </div>
+
+      <dialog class="filter-modal" id="filter-modal">
+        <form method="dialog" class="filter-modal__form">
+          <div class="filter-modal__head">
+            <h2 class="filter-modal__title">All Filters</h2>
+            <button type="button" class="filter-modal__close" data-close-filter-modal aria-label="Close filters">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+
+          <div class="filter-modal__field">
+            <label class="filter-field__label" for="modal-filter-sort">Sort</label>
+            <select class="filter-field__input" id="modal-filter-sort" data-filter="sort">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="name-asc">Name: A to Z</option>
+            </select>
+          </div>
+
+          <div class="filter-modal__field">
+            <span class="filter-field__label">Category</span>
+            <div class="filter-modal__chips" data-filter="category" role="radiogroup" aria-label="Category">
+              <button type="button" class="filter-chip is-active" data-chip-value="">All</button>
+              <button type="button" class="filter-chip" data-chip-value="furniture">Furniture</button>
+              <button type="button" class="filter-chip" data-chip-value="painting">Painting</button>
+              <button type="button" class="filter-chip" data-chip-value="toy">Toy</button>
+              <button type="button" class="filter-chip" data-chip-value="dessert">Dessert</button>
+              <button type="button" class="filter-chip" data-chip-value="food">Food</button>
+              <button type="button" class="filter-chip" data-chip-value="decor">Decor</button>
+              <button type="button" class="filter-chip" data-chip-value="halloween">Halloween</button>
+            </div>
+          </div>
+
+          <div class="filter-modal__field">
+            <span class="filter-field__label">Price Range</span>
+            <div class="filter-field__range">
+              <input class="filter-field__input" type="number" min="0" step="1" placeholder="Min" aria-label="Minimum price" id="modal-filter-price-min" data-filter="price-min" />
+              <span aria-hidden="true">–</span>
+              <input class="filter-field__input" type="number" min="0" step="1" placeholder="Max" aria-label="Maximum price" id="modal-filter-price-max" data-filter="price-max" />
+            </div>
+          </div>
+
+          <div class="filter-modal__actions">
+            <button type="button" class="button button--outlined" data-clear-filters>Clear all</button>
+            <button type="button" class="button button--filled" data-close-filter-modal>Show Results</button>
+          </div>
+        </form>
+      </dialog>
+
       <div class="shop-layout">
         <aside class="shop-sidebar">
           <h3 class="shop-sidebar__title">Find My Shops</h3>
@@ -101,8 +188,8 @@
           </div>
         </aside>
 
-        <div class="card-grid card-grid--3">
-        <article class="card card--product" data-category="painting">
+        <div class="card-grid card-grid--3" id="shop-grid">
+        <article class="card card--product" data-category="painting" data-price="10.00">
           <div class="card__media card__media--center">
             <img src="../assets/images/work-frame-pearl-earring.webp" alt="Miniature Girl With a Pearl Earring portrait in a gold oval frame by Rose" />
           </div>
@@ -112,7 +199,7 @@
             <a href="https://www.ebay.com/itm/402652480748" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="furniture">
+        <article class="card card--product" data-category="furniture" data-price="75.00">
           <div class="card__media">
             <img src="../assets/images/work-furniture-set.webp" alt="Hand-carved miniature Victorian parlor furniture set by Rose" />
           </div>
@@ -122,7 +209,7 @@
             <a href="https://www.ebay.com/itm/407164832311" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="painting">
+        <article class="card card--product" data-category="painting" data-price="10.00">
           <div class="card__media">
             <img src="../assets/images/work-frame-couple-blue.webp" alt="Miniature Victorian couple portrait in a blue and gold frame, hand-painted by Rose" />
           </div>
@@ -132,7 +219,7 @@
             <a href="https://www.ebay.com/itm/407132889873" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="painting">
+        <article class="card card--product" data-category="painting" data-price="10.00">
           <div class="card__media">
             <img src="../assets/images/work-frame-couple-red.webp" alt="Miniature Victorian couple portrait in a red and gold frame, hand-painted by Rose" />
           </div>
@@ -142,7 +229,7 @@
             <a href="https://www.ebay.com/itm/407132887527" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="painting">
+        <article class="card card--product" data-category="painting" data-price="10.00">
           <div class="card__media">
             <img src="../assets/images/work-frame-marie-antoinette.webp" alt="Miniature Marie Antoinette portrait frame, hand-painted by Rose" />
           </div>
@@ -152,7 +239,7 @@
             <a href="https://www.ebay.com/itm/407132883456" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="toy">
+        <article class="card card--product" data-category="toy" data-price="4.50">
           <div class="card__media">
             <img src="../assets/images/work-dog-figurine.webp" alt="Hand-painted miniature spaniel figurine by Rose" />
           </div>
@@ -162,7 +249,7 @@
             <a href="https://www.ebay.com/itm/406293830496" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="toy">
+        <article class="card card--product" data-category="toy" data-price="4.00">
           <div class="card__media">
             <img src="../assets/images/work-seahorse.webp" alt="3D printed and hand-painted seahorse miniature by Rose" />
           </div>
@@ -172,7 +259,7 @@
             <a href="https://www.ebay.com/itm/406857951060" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="toy">
+        <article class="card card--product" data-category="toy" data-price="15.00">
           <div class="card__media">
             <img src="../assets/images/work-crab-figurine.webp" alt="3D printed miniature crab figurine by Rose" />
           </div>
@@ -182,7 +269,7 @@
             <a href="https://www.ebay.com/itm/405418662444" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="toy">
+        <article class="card card--product" data-category="toy" data-price="6.00">
           <div class="card__media">
             <img src="../assets/images/work-fish-rocker.webp" alt="3D printed miniature fish rocker by Rose" />
           </div>
@@ -192,7 +279,7 @@
             <a href="https://www.ebay.com/itm/407169811689" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="decor">
+        <article class="card card--product" data-category="decor" data-price="4.00">
           <div class="card__media">
             <img src="../assets/images/work-basket.webp" alt="3D printed miniature market basket by Rose" />
           </div>
@@ -202,7 +289,7 @@
             <a href="https://www.ebay.com/itm/406695762625" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="dessert">
+        <article class="card card--product" data-category="dessert" data-price="5.00">
           <div class="card__media">
             <img src="../assets/images/work-pie-apple-crumb.webp" alt="Miniature apple crumb pie handmade by Rose" />
           </div>
@@ -212,7 +299,7 @@
             <a href="https://www.ebay.com/itm/404435215752" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="dessert">
+        <article class="card card--product" data-category="dessert" data-price="5.00">
           <div class="card__media">
             <img src="../assets/images/work-pie-kiwi.webp" alt="Miniature kiwi tart handmade by Rose" />
           </div>
@@ -222,7 +309,7 @@
             <a href="https://www.ebay.com/itm/403253602133" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="dessert">
+        <article class="card card--product" data-category="dessert" data-price="5.00">
           <div class="card__media">
             <img src="../assets/images/work-pie-cherry.webp" alt="Miniature cherry pie handmade by Rose" />
           </div>
@@ -232,7 +319,7 @@
             <a href="https://www.ebay.com/itm/404205867938" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="decor">
+        <article class="card card--product" data-category="decor" data-price="15.00">
           <div class="card__media">
             <img src="../assets/images/work-hat-box.webp" alt="Miniature handmade hat box by Rose, decorated with feathers and ribbon" />
           </div>
@@ -242,7 +329,7 @@
             <a href="https://www.ebay.com/itm/406363852219" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="halloween decor">
+        <article class="card card--product" data-category="halloween decor" data-price="5.00">
           <div class="card__media">
             <img src="../assets/images/work-halloween-bay-shelf.webp" alt="Miniature Halloween bay shelf, resin 3D print by Rose" />
           </div>
@@ -252,7 +339,7 @@
             <a href="https://www.ebay.com/itm/406294255948" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="halloween toy">
+        <article class="card card--product" data-category="halloween toy" data-price="4.00">
           <div class="card__media">
             <img src="../assets/images/work-halloween-witch-cat.webp" alt="Miniature Halloween witch cat, resin 3D print by Rose" />
           </div>
@@ -262,7 +349,7 @@
             <a href="https://www.ebay.com/itm/406294244357" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="halloween decor">
+        <article class="card card--product" data-category="halloween decor" data-price="1.50">
           <div class="card__media">
             <img src="../assets/images/work-halloween-ghosts.webp" alt="Miniature Halloween ghosts, handmade by Rose" />
           </div>
@@ -272,7 +359,7 @@
             <a href="https://www.ebay.com/itm/407038560476" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="furniture painting">
+        <article class="card card--product" data-category="furniture painting" data-price="10.00">
           <div class="card__media">
             <img src="../assets/images/work-folding-screen.webp" alt="Hand-painted miniature folding screen by Rose" />
           </div>
@@ -282,7 +369,7 @@
             <a href="https://www.ebay.com/itm/407162237627" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="decor">
+        <article class="card card--product" data-category="decor" data-price="15.00">
           <div class="card__media">
             <img src="../assets/images/work-3d-printed-lions.png" alt="3D printed and hand-painted lion bookend miniatures by Rose" />
           </div>
@@ -292,7 +379,7 @@
             <a href="https://www.ebay.com/itm/405909220307" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="halloween decor">
+        <article class="card card--product" data-category="halloween decor" data-price="4.00">
           <div class="card__media">
             <img src="../assets/images/work-skull-planter.webp" alt="3D printed resin skull planter by Rose" />
           </div>
@@ -302,7 +389,7 @@
             <a href="https://www.ebay.com/itm/406287143553" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="dessert">
+        <article class="card card--product" data-category="dessert" data-price="5.00">
           <div class="card__media">
             <img src="../assets/images/work-tarte-fruit.webp" alt="Miniature mixed fruit tart handmade by Rose" />
           </div>
@@ -312,7 +399,7 @@
             <a href="https://www.ebay.com/itm/403269107151" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="toy">
+        <article class="card card--product" data-category="toy" data-price="3.00">
           <div class="card__media">
             <img src="../assets/images/work-brown-bunny.webp" alt="Miniature brown bunny figurine handmade by Rose" />
           </div>
@@ -322,7 +409,7 @@
             <a href="https://www.ebay.com/itm/402551532995" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="food">
+        <article class="card card--product" data-category="food" data-price="6.00">
           <div class="card__media">
             <img src="../assets/images/work-lemon-board.webp" alt="Miniature artisan lemon cutting board handmade by Rose" />
           </div>
@@ -332,7 +419,7 @@
             <a href="https://www.ebay.com/itm/406674745553" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="decor">
+        <article class="card card--product" data-category="decor" data-price="4.00">
           <div class="card__media">
             <img src="../assets/images/work-heart-mirror.webp" alt="Miniature handmade heart mirror by Rose" />
           </div>
@@ -342,7 +429,7 @@
             <a href="https://www.ebay.com/itm/402711047982" target="_blank" rel="noopener" class="button button--filled button--sm">View on eBay</a>
           </div>
         </article>
-        <article class="card card--product" data-category="painting halloween">
+        <article class="card card--product" data-category="painting halloween" data-price="5.00">
           <div class="card__media">
             <img src="../assets/images/work-frame-skeleton-dinner.webp" alt="Miniature skeleton dinner scene in a framed picture, handmade by Rose" />
           </div>
@@ -353,6 +440,7 @@
           </div>
         </article>
         </div>
+        <p class="filter-empty" id="filter-empty" hidden>No pieces match those filters — try adjusting or clearing them.</p>
       </div>
     </div>
   </section>
@@ -410,6 +498,6 @@
   </div>
 </footer>
 
-<script src="../js/main.js?v=3"></script>
+<script src="../js/main.js?v=4"></script>
 </body>
 </html>
