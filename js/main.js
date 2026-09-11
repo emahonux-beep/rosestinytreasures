@@ -176,6 +176,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Popover open/close: one open at a time, closes on outside click, Escape, or Apply.
+  function positionPopover(popover, btn) {
+    const rect = btn.getBoundingClientRect();
+    popover.style.top = `${rect.bottom + 8}px`;
+    popover.style.left = `${rect.left}px`;
+    const overflowRight = rect.left + popover.offsetWidth - window.innerWidth + 16;
+    if (overflowRight > 0) popover.style.left = `${rect.left - overflowRight}px`;
+  }
+
   popoverToggles.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -184,11 +192,14 @@ document.addEventListener("DOMContentLoaded", () => {
       closeAllPopovers();
       if (willOpen) {
         popover.hidden = false;
+        positionPopover(popover, btn);
         btn.setAttribute("aria-expanded", "true");
       }
     });
   });
   closePopoverButtons.forEach((btn) => btn.addEventListener("click", closeAllPopovers));
+  window.addEventListener("scroll", closeAllPopovers, { passive: true });
+  window.addEventListener("resize", closeAllPopovers);
   document.addEventListener("click", (e) => {
     if (!e.target.closest(".filter-dropdown")) closeAllPopovers();
   });

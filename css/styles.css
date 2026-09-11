@@ -1141,10 +1141,8 @@ textarea.field__input { min-height: 120px; resize: vertical; }
 }
 
 .filter-popover {
-  position: absolute;
-  top: calc(100% + var(--space-2));
-  left: 0;
-  z-index: 20;
+  position: fixed;
+  z-index: 200;
   min-width: 220px;
   display: flex;
   flex-direction: column;
