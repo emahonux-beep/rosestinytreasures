@@ -882,6 +882,10 @@ textarea.field__input { min-height: 120px; resize: vertical; }
 }
 .contact-list__text a { color: var(--color-secondary); text-decoration: underline; }
 
+.social-row { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-4); }
+.social-link--light { background: var(--color-surface-alt); color: var(--color-text-primary); }
+.social-link--light:hover { background: var(--color-border); }
+
 .button--block { width: 100%; justify-content: center; }
 
 /* ---------- 22. Shop showcase (eBay) ---------- */
@@ -942,19 +946,27 @@ textarea.field__input { min-height: 120px; resize: vertical; }
 
 /* ---------- 23. Work gallery ---------- */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   gap: var(--space-4);
-}
-@media (min-width: 700px) {
-  .gallery { grid-template-columns: repeat(4, 1fr); }
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: var(--space-3);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
 }
 .gallery__item {
+  flex: 0 0 auto;
+  width: 65vw;
+  max-width: 220px;
   aspect-ratio: 4 / 5;
   border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--color-surface-alt);
   box-shadow: var(--shadow-sm);
+  scroll-snap-align: start;
+}
+@media (min-width: 700px) {
+  .gallery__item { max-width: 260px; }
 }
 .gallery__item img {
   width: 100%;
