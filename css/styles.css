@@ -522,6 +522,13 @@ input:focus-visible {
   margin-bottom: var(--space-2);
 }
 .card__text { color: var(--color-text-secondary); }
+.card__price {
+  font-family: var(--font-meta);
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-4);
+}
 
 /* Simple centered cards used for marketplace + testimonials */
 .card--center { text-align: center; padding: var(--space-8) var(--space-6); }
