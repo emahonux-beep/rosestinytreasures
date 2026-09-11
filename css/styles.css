@@ -498,15 +498,9 @@ input:focus-visible {
   border-radius: var(--radius-lg);
   padding: var(--space-6);
 }
-@media (min-width: 900px) {
-  .shop-sidebar { position: sticky; top: var(--space-6); }
-}
 .shop-sidebar--standalone {
   max-width: 480px;
   margin-inline: auto;
-}
-@media (min-width: 900px) {
-  .shop-sidebar--standalone { position: static; }
 }
 .shop-sidebar__title {
   font-family: var(--font-heading);
@@ -1106,8 +1100,6 @@ textarea.field__input { min-height: 120px; resize: vertical; }
   align-items: center;
   gap: var(--space-3);
   margin-bottom: var(--space-8);
-  overflow-x: auto;
-  padding-bottom: var(--space-1);
 }
 .filter-dropdown {
   position: relative;
