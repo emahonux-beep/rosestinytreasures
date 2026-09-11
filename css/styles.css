@@ -1052,7 +1052,10 @@ textarea.field__input { min-height: 120px; resize: vertical; }
 
 /* ---------- 23. Work gallery ---------- */
 .gallery {
+  display: flex;
   overflow: hidden;
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
   -webkit-mask-image: linear-gradient(to right, transparent, black 24px, black calc(100% - 24px), transparent);
   mask-image: linear-gradient(to right, transparent, black 24px, black calc(100% - 24px), transparent);
 }
