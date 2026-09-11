@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500;600&amp;display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="../css/fonts.css" />
-<link rel="stylesheet" href="../css/styles.css?v=4" />
+<link rel="stylesheet" href="../css/styles.css?v=5" />
 </head>
 <body>
 
@@ -68,37 +68,52 @@
       </div>
 
       <div class="filter-bar">
-        <div class="filter-field">
-          <label class="filter-field__label" for="filter-sort">Sort</label>
-          <select class="filter-field__input" id="filter-sort" data-filter="sort">
-            <option value="featured">Featured</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-            <option value="name-asc">Name: A to Z</option>
-          </select>
-        </div>
-        <div class="filter-field">
-          <label class="filter-field__label" for="filter-category">Category</label>
-          <select class="filter-field__input" id="filter-category" data-filter="category">
-            <option value="">All Categories</option>
-            <option value="furniture">Furniture</option>
-            <option value="painting">Painting</option>
-            <option value="toy">Toy</option>
-            <option value="dessert">Dessert</option>
-            <option value="food">Food</option>
-            <option value="decor">Decor</option>
-            <option value="halloween">Halloween</option>
-          </select>
-        </div>
-        <div class="filter-field filter-field--range">
-          <span class="filter-field__label">Price Range</span>
-          <div class="filter-field__range">
-            <input class="filter-field__input" type="number" min="0" step="1" placeholder="Min" aria-label="Minimum price" id="filter-price-min" data-filter="price-min" />
-            <span aria-hidden="true">–</span>
-            <input class="filter-field__input" type="number" min="0" step="1" placeholder="Max" aria-label="Maximum price" id="filter-price-max" data-filter="price-max" />
+        <div class="filter-dropdown">
+          <button type="button" class="filter-btn" data-toggle-popover aria-expanded="false" aria-controls="popover-sort">
+            <span data-btn-label="sort">Sort</span>
+            <svg class="filter-btn__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="filter-popover" id="popover-sort" data-filter="sort" hidden>
+            <button type="button" class="filter-option is-active" data-option-value="featured">Featured</button>
+            <button type="button" class="filter-option" data-option-value="price-asc">Price: Low to High</button>
+            <button type="button" class="filter-option" data-option-value="price-desc">Price: High to Low</button>
+            <button type="button" class="filter-option" data-option-value="name-asc">Name: A to Z</button>
           </div>
         </div>
-        <button type="button" class="filter-bar__all button button--outlined" data-open-filter-modal>
+
+        <div class="filter-dropdown">
+          <button type="button" class="filter-btn" data-toggle-popover aria-expanded="false" aria-controls="popover-category">
+            <span data-btn-label="category">Category</span>
+            <svg class="filter-btn__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="filter-popover" id="popover-category" data-filter="category" hidden>
+            <button type="button" class="filter-option is-active" data-option-value="">All Categories</button>
+            <button type="button" class="filter-option" data-option-value="furniture">Furniture</button>
+            <button type="button" class="filter-option" data-option-value="painting">Painting</button>
+            <button type="button" class="filter-option" data-option-value="toy">Toy</button>
+            <button type="button" class="filter-option" data-option-value="dessert">Dessert</button>
+            <button type="button" class="filter-option" data-option-value="food">Food</button>
+            <button type="button" class="filter-option" data-option-value="decor">Decor</button>
+            <button type="button" class="filter-option" data-option-value="halloween">Halloween</button>
+          </div>
+        </div>
+
+        <div class="filter-dropdown">
+          <button type="button" class="filter-btn" data-toggle-popover aria-expanded="false" aria-controls="popover-price">
+            <span data-btn-label="price">Price Range</span>
+            <svg class="filter-btn__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="filter-popover filter-popover--price" id="popover-price" hidden>
+            <div class="filter-field__range">
+              <input class="filter-field__input" type="number" min="0" step="1" placeholder="Min" aria-label="Minimum price" id="filter-price-min" data-filter="price-min" />
+              <span aria-hidden="true">–</span>
+              <input class="filter-field__input" type="number" min="0" step="1" placeholder="Max" aria-label="Maximum price" id="filter-price-max" data-filter="price-max" />
+            </div>
+            <button type="button" class="button button--filled button--sm filter-popover__apply" data-close-popover>Apply</button>
+          </div>
+        </div>
+
+        <button type="button" class="filter-btn filter-btn--all" data-open-filter-modal>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="9" cy="6" r="2" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="2" fill="currentColor" stroke="none"/><circle cx="9" cy="18" r="2" fill="currentColor" stroke="none"/></svg>
           All Filters
         </button>
@@ -498,6 +513,6 @@
   </div>
 </footer>
 
-<script src="../js/main.js?v=4"></script>
+<script src="../js/main.js?v=5"></script>
 </body>
 </html>
