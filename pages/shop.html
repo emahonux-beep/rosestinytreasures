@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Roboto+Mono:wght@500;600&amp;display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="../css/fonts.css" />
-<link rel="stylesheet" href="../css/styles.css?v=7" />
+<link rel="stylesheet" href="../css/styles.css?v=9" />
 </head>
 <body>
 
@@ -65,59 +65,6 @@
         </p>
         <h1 class="section-title">Shop These Pieces</h1>
         <p class="section-subtitle">A few of Rose's current pieces — view full details and buy directly on eBay.</p>
-      </div>
-
-      <div class="filter-bar">
-        <div class="filter-dropdown">
-          <button type="button" class="filter-btn" data-toggle-popover aria-expanded="false" aria-controls="popover-sort">
-            <span data-btn-label="sort">Sort</span>
-            <svg class="filter-btn__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="filter-popover" id="popover-sort" data-filter="sort" hidden>
-            <button type="button" class="filter-option is-active" data-option-value="featured">Featured</button>
-            <button type="button" class="filter-option" data-option-value="price-asc">Price: Low to High</button>
-            <button type="button" class="filter-option" data-option-value="price-desc">Price: High to Low</button>
-            <button type="button" class="filter-option" data-option-value="name-asc">Name: A to Z</button>
-          </div>
-        </div>
-
-        <div class="filter-dropdown">
-          <button type="button" class="filter-btn" data-toggle-popover aria-expanded="false" aria-controls="popover-category">
-            <span data-btn-label="category">Category</span>
-            <svg class="filter-btn__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="filter-popover" id="popover-category" data-filter="category" hidden>
-            <button type="button" class="filter-option is-active" data-option-value="">All Categories</button>
-            <button type="button" class="filter-option" data-option-value="furniture">Furniture</button>
-            <button type="button" class="filter-option" data-option-value="painting">Painting</button>
-            <button type="button" class="filter-option" data-option-value="toy">Toy</button>
-            <button type="button" class="filter-option" data-option-value="dessert">Dessert</button>
-            <button type="button" class="filter-option" data-option-value="food">Food</button>
-            <button type="button" class="filter-option" data-option-value="decor">Decor</button>
-            <button type="button" class="filter-option" data-option-value="halloween">Halloween</button>
-          </div>
-        </div>
-
-        <div class="filter-dropdown">
-          <button type="button" class="filter-btn" data-toggle-popover aria-expanded="false" aria-controls="popover-price">
-            <span data-btn-label="price">Price Range</span>
-            <svg class="filter-btn__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="filter-popover filter-popover--price" id="popover-price" hidden>
-            <div class="filter-field__range">
-              <input class="filter-field__input" type="number" min="0" step="1" placeholder="Min" aria-label="Minimum price" id="filter-price-min" data-filter="price-min" />
-              <span aria-hidden="true">–</span>
-              <input class="filter-field__input" type="number" min="0" step="1" placeholder="Max" aria-label="Maximum price" id="filter-price-max" data-filter="price-max" />
-            </div>
-            <button type="button" class="button button--filled button--sm filter-popover__apply" data-close-popover>Apply</button>
-          </div>
-        </div>
-
-        <button type="button" class="filter-btn filter-btn--all" data-open-filter-modal>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="9" cy="6" r="2" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="2" fill="currentColor" stroke="none"/><circle cx="9" cy="18" r="2" fill="currentColor" stroke="none"/></svg>
-          All Filters
-        </button>
-        <button type="button" class="filter-bar__clear" data-clear-filters hidden>Clear all</button>
       </div>
 
       <dialog class="filter-modal" id="filter-modal">
@@ -202,6 +149,60 @@
             </a>
           </div>
         </aside>
+
+        <div class="shop-main">
+          <div class="filter-bar">
+            <div class="filter-dropdown">
+              <button type="button" class="filter-btn" data-toggle-popover aria-expanded="false" aria-controls="popover-sort">
+                <span data-btn-label="sort">Sort</span>
+                <svg class="filter-btn__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="filter-popover" id="popover-sort" data-filter="sort" hidden>
+                <button type="button" class="filter-option is-active" data-option-value="featured">Featured</button>
+                <button type="button" class="filter-option" data-option-value="price-asc">Price: Low to High</button>
+                <button type="button" class="filter-option" data-option-value="price-desc">Price: High to Low</button>
+                <button type="button" class="filter-option" data-option-value="name-asc">Name: A to Z</button>
+              </div>
+            </div>
+
+            <div class="filter-dropdown">
+              <button type="button" class="filter-btn" data-toggle-popover aria-expanded="false" aria-controls="popover-category">
+                <span data-btn-label="category">Category</span>
+                <svg class="filter-btn__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="filter-popover" id="popover-category" data-filter="category" hidden>
+                <button type="button" class="filter-option is-active" data-option-value="">All Categories</button>
+                <button type="button" class="filter-option" data-option-value="furniture">Furniture</button>
+                <button type="button" class="filter-option" data-option-value="painting">Painting</button>
+                <button type="button" class="filter-option" data-option-value="toy">Toy</button>
+                <button type="button" class="filter-option" data-option-value="dessert">Dessert</button>
+                <button type="button" class="filter-option" data-option-value="food">Food</button>
+                <button type="button" class="filter-option" data-option-value="decor">Decor</button>
+                <button type="button" class="filter-option" data-option-value="halloween">Halloween</button>
+              </div>
+            </div>
+
+            <div class="filter-dropdown">
+              <button type="button" class="filter-btn" data-toggle-popover aria-expanded="false" aria-controls="popover-price">
+                <span data-btn-label="price">Price Range</span>
+                <svg class="filter-btn__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="filter-popover filter-popover--price" id="popover-price" hidden>
+                <div class="filter-field__range">
+                  <input class="filter-field__input" type="number" min="0" step="1" placeholder="Min" aria-label="Minimum price" id="filter-price-min" data-filter="price-min" />
+                  <span aria-hidden="true">–</span>
+                  <input class="filter-field__input" type="number" min="0" step="1" placeholder="Max" aria-label="Maximum price" id="filter-price-max" data-filter="price-max" />
+                </div>
+                <button type="button" class="button button--filled button--sm filter-popover__apply" data-close-popover>Apply</button>
+              </div>
+            </div>
+
+            <button type="button" class="filter-btn filter-btn--all" data-open-filter-modal>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="9" cy="6" r="2" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="2" fill="currentColor" stroke="none"/><circle cx="9" cy="18" r="2" fill="currentColor" stroke="none"/></svg>
+              All Filters
+            </button>
+            <button type="button" class="filter-bar__clear" data-clear-filters hidden>Clear all</button>
+          </div>
 
         <div class="card-grid card-grid--3" id="shop-grid">
         <article class="card card--product" data-category="painting" data-price="10.00">
@@ -456,6 +457,7 @@
         </article>
         </div>
         <p class="filter-empty" id="filter-empty" hidden>No pieces match those filters — try adjusting or clearing them.</p>
+      </div>
       </div>
     </div>
   </section>

@@ -513,8 +513,8 @@ input:focus-visible {
 .shop-sidebar__item {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   gap: var(--space-2);
   border-bottom: 1px solid var(--color-divider);
   padding-block: var(--space-6);
@@ -756,15 +756,6 @@ input:focus-visible {
 }
 .contact-strip a.button { margin-top: var(--space-6); }
 
-/* ---------- 15. Page hero (interior pages) ---------- */
-.page-hero {
-  padding-block: var(--space-16);
-  background: var(--color-surface-alt);
-  text-align: center;
-}
-.page-hero .section-title { font-size: var(--display-md); }
-.page-hero .section-subtitle { max-width: var(--container-sm); margin-inline: auto; }
-
 /* ---------- 16. Story (About: portrait + bio) ---------- */
 .story__inner {
   display: grid;
@@ -965,22 +956,26 @@ textarea.field__input { min-height: 120px; resize: vertical; }
 }
 .contact-list__text { color: var(--color-text-secondary); }
 
-.message-card {
+.contact-list__text a { color: var(--color-secondary); text-decoration: underline; }
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+.contact-method-card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-8);
-  box-shadow: var(--shadow-sm);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: var(--space-2);
 }
-.message-card__title { margin-bottom: var(--space-2); }
-.message-card__subtitle { color: var(--color-text-secondary); margin-bottom: var(--space-8); }
-
-.contact-list--divided {
-  margin-top: var(--space-10);
-  border-top: 1px solid var(--color-divider);
-  padding-top: var(--space-8);
-}
-.contact-list__text a { color: var(--color-secondary); text-decoration: underline; }
+.contact-method-card a { color: var(--color-secondary); text-decoration: underline; }
 
 .social-row { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-4); }
 .social-link--light { background: var(--color-surface-alt); color: var(--color-text-primary); }
@@ -1127,10 +1122,6 @@ textarea.field__input { min-height: 120px; resize: vertical; }
   background: var(--color-surface-brand);
 }
 .filter-btn__chevron { width: 14px; height: 14px; flex-shrink: 0; }
-.filter-btn--all { margin-left: auto; }
-@media (max-width: 699px) {
-  .filter-btn--all { margin-left: 0; }
-}
 .filter-bar__clear {
   font-family: var(--font-meta);
   font-size: var(--text-sm);
